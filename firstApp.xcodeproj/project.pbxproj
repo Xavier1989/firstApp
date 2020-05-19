@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2510A2492472CBD600B9B9D0 /* icon.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 2510A2482472CBD600B9B9D0 /* icon.bundle */; };
+		2510A24D247418EE00B9B9D0 /* GTViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2510A24C247418EE00B9B9D0 /* GTViewController.m */; };
 		254E6C0E246D7D13000ACD97 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 254E6C0D246D7D13000ACD97 /* AppDelegate.m */; };
 		254E6C11246D7D13000ACD97 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 254E6C10246D7D13000ACD97 /* ViewController.m */; };
 		254E6C14246D7D13000ACD97 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 254E6C12246D7D13000ACD97 /* Main.storyboard */; };
@@ -19,6 +20,8 @@
 /* Begin PBXFileReference section */
 		2510A2482472CBD600B9B9D0 /* icon.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = icon.bundle; sourceTree = "<group>"; };
 		2510A24A2472D34700B9B9D0 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		2510A24B247418EE00B9B9D0 /* GTViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GTViewController.h; sourceTree = "<group>"; };
+		2510A24C247418EE00B9B9D0 /* GTViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GTViewController.m; sourceTree = "<group>"; };
 		254E6C09246D7D13000ACD97 /* firstApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = firstApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		254E6C0C246D7D13000ACD97 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		254E6C0D246D7D13000ACD97 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -72,6 +75,8 @@
 				254E6C1A246D7D14000ACD97 /* Info.plist */,
 				254E6C1B246D7D14000ACD97 /* main.m */,
 				2510A24A2472D34700B9B9D0 /* PrefixHeader.pch */,
+				2510A24B247418EE00B9B9D0 /* GTViewController.h */,
+				2510A24C247418EE00B9B9D0 /* GTViewController.m */,
 			);
 			path = firstApp;
 			sourceTree = "<group>";
@@ -150,6 +155,7 @@
 				254E6C11246D7D13000ACD97 /* ViewController.m in Sources */,
 				254E6C1C246D7D14000ACD97 /* main.m in Sources */,
 				254E6C0E246D7D13000ACD97 /* AppDelegate.m in Sources */,
+				2510A24D247418EE00B9B9D0 /* GTViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
