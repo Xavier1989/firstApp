@@ -12,29 +12,6 @@
 
 @end
 
-@implementation TestView
-
-- (instancetype)init{
-    self = [super init];
-    if(self){
-    }
-    return self;
-}
-
-- (void)willMoveToSuperview:(nullable UIView *)newSuperview{
-    [super willMoveToSuperview:newSuperview];
-}
-- (void)didMoveToSuperview{
-    [super didMoveToSuperview];
-}
-- (void)willMoveToWindow:(nullable UIWindow *)newWindow{
-    [super willMoveToWindow:newWindow];
-}
-- (void)didMoveToWindow{
-    [super didMoveToWindow];
-}
-
-@end
 
 @interface ViewController ()<UITableViewDataSource, UITableViewDelegate>
 
@@ -49,19 +26,6 @@
     }
     return self;
 }
-- (void)viewWillAppear:(BOOL)animated{
-    [super viewWillAppear:animated];
-}
-- (void)viewDidAppear:(BOOL)animated{
-    [super viewDidAppear:animated];
-}
-- (void)viewWillDisappear:(BOOL)animated{
-    [super viewWillDisappear:animated];
-}
-- (void)viewDidDisappear:(BOOL)animated{
-    [super viewDidDisappear:animated];
-}
-
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -103,6 +67,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     UIViewController *controller = [[UIViewController alloc] init];
     controller.title = [NSString stringWithFormat:@"%@", @(indexPath.row)];
+    controller.view.backgroundColor = [UIColor  whiteColor];
     [self.navigationController pushViewController:controller animated:YES];
     
 }
@@ -112,14 +77,11 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"id"];
+    GTNormalTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"id"];
     if(!cell){
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"id"];
+        cell = [[GTNormalTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"id"];
     }
-    cell.textLabel.text = [NSString stringWithFormat:@"主标题-%@", @(indexPath.row)];
-    cell.detailTextLabel.text = @"副标题";
-    cell.imageView.image = [UIImage imageNamed:@"icon.bundle/video@2x.png"];
-    
+    [cell layoutTableViewCell];
     return cell;
 }
 

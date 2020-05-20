@@ -14,4 +14,5 @@
 #import "ViewController.h"
 #import "GTViewController.h"
 #import "GTRecommendViewController.h"
+#import "GTNormalTableViewCell.h"
 #endif /* PrefixHeader_pch */
