@@ -119,6 +119,7 @@
     cell.textLabel.text = [NSString stringWithFormat:@"主标题-%@", @(indexPath.row)];
     cell.detailTextLabel.text = @"副标题";
     cell.imageView.image = [UIImage imageNamed:@"icon.bundle/video@2x.png"];
+    
     return cell;
 }
 

@@ -15,6 +15,7 @@
 		254E6C16246D7D14000ACD97 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 254E6C15246D7D14000ACD97 /* Assets.xcassets */; };
 		254E6C19246D7D14000ACD97 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 254E6C17246D7D14000ACD97 /* LaunchScreen.storyboard */; };
 		254E6C1C246D7D14000ACD97 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 254E6C1B246D7D14000ACD97 /* main.m */; };
+		2550CF6024755C22001C042D /* GTRecommendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2550CF5F24755C22001C042D /* GTRecommendViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,8 @@
 		254E6C18246D7D14000ACD97 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		254E6C1A246D7D14000ACD97 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		254E6C1B246D7D14000ACD97 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		2550CF5E24755C22001C042D /* GTRecommendViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GTRecommendViewController.h; sourceTree = "<group>"; };
+		2550CF5F24755C22001C042D /* GTRecommendViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GTRecommendViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +80,8 @@
 				2510A24A2472D34700B9B9D0 /* PrefixHeader.pch */,
 				2510A24B247418EE00B9B9D0 /* GTViewController.h */,
 				2510A24C247418EE00B9B9D0 /* GTViewController.m */,
+				2550CF5E24755C22001C042D /* GTRecommendViewController.h */,
+				2550CF5F24755C22001C042D /* GTRecommendViewController.m */,
 			);
 			path = firstApp;
 			sourceTree = "<group>";
@@ -155,6 +160,7 @@
 				254E6C11246D7D13000ACD97 /* ViewController.m in Sources */,
 				254E6C1C246D7D14000ACD97 /* main.m in Sources */,
 				254E6C0E246D7D13000ACD97 /* AppDelegate.m in Sources */,
+				2550CF6024755C22001C042D /* GTRecommendViewController.m in Sources */,
 				2510A24D247418EE00B9B9D0 /* GTViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
