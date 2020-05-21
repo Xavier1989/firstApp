@@ -13,7 +13,7 @@
 @end
 
 
-@interface ViewController ()<UITableViewDataSource, UITableViewDelegate>
+@interface ViewController ()<UITableViewDataSource, UITableViewDelegate, GTNormalTableViewCellDelegate>
 
 @end
 
@@ -80,9 +80,18 @@
     GTNormalTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"id"];
     if(!cell){
         cell = [[GTNormalTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"id"];
+        cell.delegate = self;
     }
     [cell layoutTableViewCell];
     return cell;
 }
 
+- (void)tableViewCell:(UITableViewCell *)tableViewCell clickDeleteButton:(UIButton *)deleteButton{
+    GTDeleteCellView *deleteView = [[GTDeleteCellView alloc]initWithFrame:self.view.bounds];
+    
+    CGRect rect = [tableViewCell convertRect:deleteButton.frame toView:nil];
+    [deleteView showDeleteViewFromPoint:(rect.origin) clickBlock:^{
+        NSLog(@"");
+    }];
+}
 @end
