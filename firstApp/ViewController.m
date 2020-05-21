@@ -65,7 +65,7 @@
     return 100;
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    UIViewController *controller = [[UIViewController alloc] init];
+    GTDetailViewController *controller = [[GTDetailViewController alloc] init];
     controller.title = [NSString stringWithFormat:@"%@", @(indexPath.row)];
     controller.view.backgroundColor = [UIColor  whiteColor];
     [self.navigationController pushViewController:controller animated:YES];

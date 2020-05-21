@@ -14,6 +14,8 @@
 @property(nonatomic, strong, readwrite) UILabel *sourceLabel;
 @property(nonatomic, strong, readwrite) UILabel *commentLabel;
 @property(nonatomic, strong, readwrite) UILabel *timeLabel;
+@property(nonatomic, strong, readwrite) UIImageView *rightImageView;
+@property(nonatomic, strong, readwrite) UIButton *deleteButton;
 
 @end
 
@@ -54,6 +56,20 @@
             self.timeLabel;
         })];
         
+        [self.contentView addSubview:({
+            self.rightImageView = [[UIImageView alloc] initWithFrame:CGRectMake(280, 15, 50, 50)];
+            self.rightImageView.backgroundColor = [UIColor whiteColor];
+            self.rightImageView;
+        })];
+        
+        [self.contentView addSubview:({
+            self.deleteButton = [[UIButton alloc] initWithFrame:CGRectMake(250, 70, 20, 20)];
+            self.deleteButton.backgroundColor = [UIColor blueColor];
+            [self.deleteButton setTitle:@"X" forState:UIControlStateNormal];
+            [self.deleteButton setTitle:@"V" forState:UIControlStateHighlighted];
+            [self.deleteButton addTarget:self action:@selector(deleteButtonClick) forControlEvents:UIControlEventTouchDown];
+            self.deleteButton;
+        })];
     }
     return self;
 }
@@ -71,6 +87,8 @@
     self.timeLabel.text = @"三分钟";
     [self.timeLabel sizeToFit];
     self.timeLabel.frame = CGRectMake(self.commentLabel.frame.origin.x + self.commentLabel.frame.size.width + 15, self.timeLabel.frame.origin.y, self.timeLabel.frame.size.width, self.timeLabel.frame.size.height);
+    
+    self.rightImageView.image  = [UIImage imageNamed:@"icon.bundle/icon.png"];
 }
 
 - (void)awakeFromNib {
@@ -84,6 +102,8 @@
     // Configure the view for the selected state
 }
 
-
+-(void)deleteButtonClick{
+    NSLog(@"delete button click");
+}
 
 @end
