@@ -1,18 +1,18 @@
 //
-//  GTViewController.m
+//  GTVideoViewController.m
 //  firstApp
 //
 //  Created by 谢添 on 2020/5/19.
 //  Copyright © 2020 xavier. All rights reserved.
 //
 
-#import "GTViewController.h"
+#import "GTVideoViewController.h"
 
-@interface GTViewController ()<UICollectionViewDelegate, UICollectionViewDataSource>
+@interface GTVideoViewController ()<UICollectionViewDelegate, UICollectionViewDataSource>
 
 @end
 
-@implementation GTViewController
+@implementation GTVideoViewController
 
 - (instancetype) init{
     self = [super init];

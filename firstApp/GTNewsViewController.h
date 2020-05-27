@@ -8,7 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
+/// 新闻 table 对应的 controller
+@interface GTNewsViewController : UIViewController
 
 
 @end

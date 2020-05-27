@@ -1,5 +1,5 @@
 //
-//  GTViewController.h
+//  GTVideoViewController.h
 //  firstApp
 //
 //  Created by 谢添 on 2020/5/19.
@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface GTViewController : UIViewController
+@interface GTVideoViewController : UIViewController
 
 @end
 
