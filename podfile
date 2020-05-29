@@ -1,0 +1,6 @@
+platform :ios, '12.2'
+target 'firstApp' do
+	pod 'AFNetworking'
+end
+	
+source 'https://github.com/CocoaPods/Specs.git'

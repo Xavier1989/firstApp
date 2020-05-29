@@ -17,5 +17,6 @@
 #import "GTNormalTableViewCell.h"
 #import "GTDetailViewController.h"
 #import "GTDeleteCellView.h"
+#import "loader/GTListLoader.h"
 
 #endif /* PrefixHeader_pch */
