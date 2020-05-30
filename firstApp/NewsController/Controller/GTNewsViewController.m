@@ -9,20 +9,16 @@
 #import "GTNewsViewController.h"
 
 @interface GTNewsViewController ()<UITableViewDataSource, UITableViewDelegate, GTNormalTableViewCellDelegate>
-@property(nonatomic, strong, readwrite)UITableView *tableView;
-@property(nonatomic, strong, readwrite)NSMutableArray *dataArray;
-@property(nonatomic, strong, readwrite)GTListLoader *listLoader;
+@property (nonatomic, strong, readwrite) UITableView *tableView;
+@property (nonatomic, strong, readwrite) NSArray *dataArray;
+@property (nonatomic, strong, readwrite) GTListLoader *listLoader;
 @end
 
 @implementation GTNewsViewController
 
--(instancetype)init{
+- (instancetype)init {
     self = [super init];
-    if(self){
-        self.dataArray = @[].mutableCopy;
-        for (int i=0; i<20; i++) {
-            [self.dataArray addObject:@(i)];
-        }
+    if (self) {
     }
     return self;
 }
@@ -30,7 +26,7 @@
 #pragma mark - life cycle
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.view.backgroundColor=[UIColor whiteColor];
+    self.view.backgroundColor = [UIColor whiteColor];
 
     // Do any additional setup after loading the view.
 //    UIView *view = [[UIView alloc] init];
@@ -45,15 +41,21 @@
 //
 //    UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(pushController)];
 //    [view2 addGestureRecognizer:tapGesture];
-    
+
     self.tableView = [[UITableView alloc] initWithFrame:self.view.bounds];
     self.tableView.dataSource = self;
-    self.tableView.delegate  = self;
+    self.tableView.delegate = self;
     [self.view addSubview:self.tableView];
-    
+
     self.listLoader = [[GTListLoader alloc]init];
-    [self.listLoader loadListData];
-    
+
+    __weak typeof (self) wself = self;
+    [self.listLoader loadListDataWithFinishBlock:^(BOOL success, NSArray<GTListItem *> *_Nonnull dataArray) {
+        __strong typeof(self) strongSelf = wself;
+        strongSelf.dataArray = dataArray;
+        [strongSelf.tableView reloadData];
+        NSLog(@"");
+    }];
 }
 
 //- (void)pushController{
@@ -66,43 +68,45 @@
 //}
 
 #pragma mark - UITableViewDelegate
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return 100;
 }
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    GTDetailViewController *controller = [[GTDetailViewController alloc] init];
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    GTListItem *item = [self.dataArray objectAtIndex:indexPath.row];
+    GTDetailViewController *controller = [[GTDetailViewController alloc] initWithUrlString:item.articleUrl];
     controller.title = [NSString stringWithFormat:@"%@", @(indexPath.row)];
     controller.view.backgroundColor = [UIColor  whiteColor];
     [self.navigationController pushViewController:controller animated:YES];
-    
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return self.dataArray.count;
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     GTNormalTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"id"];
-    if(!cell){
+    if (!cell) {
         cell = [[GTNormalTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"id"];
         cell.delegate = self;
     }
-    [cell layoutTableViewCell];
+    [cell layoutTableViewCellWithItem:[self.dataArray objectAtIndex:indexPath.row]];
     return cell;
 }
 
-- (void)tableViewCell:(UITableViewCell *)tableViewCell clickDeleteButton:(UIButton *)deleteButton{
-    GTDeleteCellView *deleteView = [[GTDeleteCellView alloc]initWithFrame:self.view.bounds];
-    
-    CGRect rect = [tableViewCell convertRect:deleteButton.frame toView:nil];
-    [deleteView showDeleteViewFromPoint:(rect.origin) clickBlock:^{
-        NSLog(@"");
-    }];
-    __weak typeof (self) wself=self;
-    [deleteView showDeleteViewFromPoint:rect.origin clickBlock:^{
-        __strong typeof(self)strongSelf = wself;
-        [strongSelf.dataArray removeLastObject];
-        [self.tableView deleteRowsAtIndexPaths:@[[strongSelf.tableView indexPathForCell:tableViewCell]] withRowAnimation:UITableViewRowAnimationAutomatic];
-    }];
+- (void)tableViewCell:(UITableViewCell *)tableViewCell clickDeleteButton:(UIButton *)deleteButton {
+//    GTDeleteCellView *deleteView = [[GTDeleteCellView alloc]initWithFrame:self.view.bounds];
+//
+//    CGRect rect = [tableViewCell convertRect:deleteButton.frame toView:nil];
+//    [deleteView showDeleteViewFromPoint:(rect.origin) clickBlock:^{
+//        NSLog(@"");
+//    }];
+//    __weak typeof (self) wself = self;
+//    [deleteView showDeleteViewFromPoint:rect.origin clickBlock:^{
+//        __strong typeof(self) strongSelf = wself;
+//        [strongSelf.dataArray removeLastObject];
+//        [self.tableView deleteRowsAtIndexPaths:@[[strongSelf.tableView indexPathForCell:tableViewCell]] withRowAnimation:UITableViewRowAnimationAutomatic];
+//    }];
 }
+
 @end
